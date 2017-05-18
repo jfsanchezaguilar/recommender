@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        Start:
+      </ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="minDateIso"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        End:
+      </ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="maxDateIso"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-range dualKnobs="true" [(ngModel)]="timerange" min="830443285" max="1474749350" step="1" snaps="false" debounce="300"
+        (ionChange)="onTimeRangeChanged($event)"></ion-range>
+    </ion-item>
+    <ion-item>
+      <ion-label item-start>
+        User Id
+        <ion-badge item-end color="secondary">{{userId}}</ion-badge>
+      </ion-label>
+      <ion-range dualKnobs="false" [(ngModel)]="userId" min="1" max="259137" step="1" snaps="false" debounce="300" (ionChange)="onUserChanged($event)"></ion-range>
+    </ion-item>
+    <ion-item>
+      <ion-label>Movie</ion-label>
+      <ion-select [(ngModel)]="movie">
+        <ion-option *ngFor="let movieRating of movieRatings" [value]="movieRating.movie">{{movieRating.movie.title}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-card ion-item *ngFor="let movieRating of movieRatings">
+      <ion-card-header>
+        {{movieRating.movie.title}}
+      </ion-card-header>
+      <ion-card-content>
+        Stars: {{movieRating.rating.rating}}<br /> Genres: <br />
+        <p *ngFor="let genre of movieRating.movie.genres">
+          {{genre}}
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+  <button ion-button full>Get Recommendations</button>
+</ion-content>
