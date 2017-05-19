@@ -29,7 +29,7 @@ public class ReadyController {
 
     @RequestMapping(value = "/ready", method = RequestMethod.GET)
     List<Ready> getAllReady() {
-        return null;
+        return readyService.getAll();
     }
 
     @RequestMapping(value= "/ready", method = RequestMethod.POST)

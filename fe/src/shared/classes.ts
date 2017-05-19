@@ -12,7 +12,7 @@ export class Movie {
     genre8: string;
 
     constructor() {
-       
+
     }
 }
 
@@ -35,5 +35,53 @@ export class MovieRating {
     constructor(rating: Rating, movie: Movie) {
         this.movie = movie;
         this.rating = rating;
+    }
+}
+
+export class Ready {
+
+    id: number;
+    timestampfrom: number;
+    timestampto: number;
+    movieid: number;
+    userid: number;
+    ready: boolean;
+
+    constructor(){
+        
+    }
+
+}
+
+export class R1 {
+
+    id: number;
+    userid: number;
+    movieid: number;
+    rating: number;
+    readyid: number;
+
+    constructor() {
+
+    }
+}
+
+export class R2 {
+    id: number;
+    movieid: number;
+    readyid: number;
+
+    constructor() {
+
+    }
+}
+
+export class R3 {
+    id: number;
+    movieid: number;
+    readyid: number;
+
+    constructor() {
+
     }
 }
