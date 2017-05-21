@@ -1,5 +1,6 @@
 package com.uniandes.tallertres.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.cassandra.mapping.Column;
 import org.springframework.data.cassandra.mapping.PrimaryKey;
 import org.springframework.data.cassandra.mapping.Table;
@@ -9,18 +10,30 @@ import org.springframework.data.cassandra.mapping.Table;
  */
 @Table(value = "ready")
 public class Ready {
+
+    @JsonProperty("id")
     @PrimaryKey("id")
     private int id;
+
+    @JsonProperty("timestampfrom")
     @Column("timestampfrom")
     private int timestampfrom;
+
+    @JsonProperty("timestampto")
     @Column("timestampto")
     private int timestampto;
+
+    @JsonProperty("movieid")
     @Column("movieid")
     private int movieid;
+
+    @JsonProperty("userid")
     @Column("userid")
     private int userid;
+
     @Column("ready")
-    private Boolean ready;
+    @JsonProperty("ready")
+    private boolean ready;
 
     public Ready() {
     }
@@ -74,7 +87,7 @@ public class Ready {
         this.userid = userid;
     }
 
-    public Boolean getReady() {
+    public boolean getReady() {
         return ready;
     }
 

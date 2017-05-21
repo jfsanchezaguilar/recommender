@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { RecommenderProvider } from "../../providers/recommender/recommender";
-import { Rating, Movie, MovieRating } from "../../shared/classes";
+import { Rating, Movie, MovieRating, Ready } from "../../shared/classes";
 
 @Component({
   selector: 'page-home',
@@ -65,7 +65,7 @@ export class HomePage {
     });
   }
 
-  setMovieGeneres(movie: Movie) : Movie{
+  setMovieGeneres(movie: Movie): Movie {
     movie.genres = [];
     if (movie.genre1 && movie.genre1 != "")
       movie.genres.push(movie.genre1);
@@ -85,5 +85,29 @@ export class HomePage {
       movie.genres.push(movie.genre8);
 
     return movie;
+  }
+
+  getRecommendation() {
+    if (this.movie) {
+      let ready = new Ready();
+      ready.id = Math.round((new Date).getTime() / 1000);
+      ready.timestampfrom = this.timerange.lower;
+      ready.timestampto = this.timerange.upper;
+      ready.userid = this.userId;
+      ready.movieid = this.movie.movieId;
+      ready.ready = false;                                                             
+
+      let loading = this.loadingCtrl.create({
+        content: 'Getting user Movies. Please wait...'
+      });
+      loading.present();
+
+      this.recommenderService.postReady(ready).then(() => {
+        loading.dismiss();
+      }, (error) => {
+        console.log(error);
+        loading.dismiss();
+      });
+    }
   }
 }

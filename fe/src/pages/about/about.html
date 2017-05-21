@@ -7,5 +7,12 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item>
+      <ion-label>Ready Recomendations</ion-label>
+      <ion-select [(ngModel)]="readySelected">
+        <ion-option *ngFor="let ready of readyRecomendations" [value]="ready">{{ready.movieid}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 </ion-content>

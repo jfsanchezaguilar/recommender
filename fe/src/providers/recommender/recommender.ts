@@ -59,7 +59,8 @@ export class RecommenderProvider {
   postReady(ready: Ready): Promise<Ready> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.apiUrl + "/ready", { ready }, options).toPromise()
+    let readyStr = JSON.stringify(ready);
+    return this.http.post(this.apiUrl + "/ready", readyStr, options).toPromise()
       .then(this.extractData)
       .catch(this.handleError);
   }
