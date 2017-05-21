@@ -10,9 +10,20 @@
   <ion-list>
     <ion-item>
       <ion-label>Ready Recomendations</ion-label>
-      <ion-select [(ngModel)]="readySelected">
-        <ion-option *ngFor="let ready of readyRecomendations" [value]="ready">{{ready.movieid}}</ion-option>
+      <ion-select [(ngModel)]="readySelected" (ionChange)="onReadyChange($event)">
+        <ion-option *ngFor="let ready of readyRecomendations" [value]="ready" >{{ready.movieid}}</ion-option>
       </ion-select>
     </ion-item>
+    <ion-card ion-item>
+      <ion-card-header>
+        {{movieRating.movie.title}}
+      </ion-card-header>
+      <ion-card-content>
+        Stars: {{movieRating.rating.rating}}<br /> Genres: <br />
+        <p *ngFor="let genre of movieRating.movie.genres">
+          {{genre}}
+        </p>
+      </ion-card-content>
+    </ion-card>
   </ion-list>
 </ion-content>
