@@ -23,11 +23,8 @@
         (ionChange)="onTimeRangeChanged($event)"></ion-range>
     </ion-item>
     <ion-item>
-      <ion-label item-start>
-        User Id
-        <ion-badge item-end color="secondary">{{userId}}</ion-badge>
-      </ion-label>
-      <ion-range dualKnobs="false" [(ngModel)]="userId" min="1" max="259137" step="1" snaps="false" debounce="300" (ionChange)="onUserChanged($event)"></ion-range>
+      <ion-label color="primary" fixed>User Id</ion-label>
+      <ion-input type="number" placeholder="Number Input with no label"  min="1" max="259137" [(ngModel)]="userId" debounce="300" (blur)="onUserChanged($event)"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Movie</ion-label>

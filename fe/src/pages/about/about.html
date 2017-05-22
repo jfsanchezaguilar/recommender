@@ -11,7 +11,7 @@
     <ion-item>
       <ion-label>Ready Recomendations</ion-label>
       <ion-select [(ngModel)]="readySelected" (ionChange)="onReadyChange($event)">
-        <ion-option *ngFor="let ready of readyRecomendations" [value]="ready" >{{ready.movieid}}</ion-option>
+        <ion-option *ngFor="let ready of readyRecomendations" [value]="ready">Movie: {{ready.movieid}} - User: {{ready.userid}} - Ready: {{ready.ready}} </ion-option>
       </ion-select>
     </ion-item>
     <ion-card ion-item>
@@ -25,5 +25,57 @@
         </p>
       </ion-card-content>
     </ion-card>
+    <button ion-button full (click)="getRecommendations()">Show Recommendations</button>
+  </ion-list>
+  <ion-list>
+    <div *ngIf="moviesR1.length > 0">
+      <b>Colavorative Recomendations</b>
+      <b>T@5 = {{top5R1}} / 5 </b>
+      <b>T@10 = {{top10R1}} / 10 </b>
+      <ion-card ion-item *ngFor="let movie of moviesR1">
+        <ion-card-header>
+          {{movie.title}}
+        </ion-card-header>
+        <ion-card-content>
+          <p *ngFor="let genre of movie.genres">
+            {{genre}}
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-list>
+  <ion-list>
+    <div *ngIf="moviesR2.length > 0">
+      <b>Content Recomendations</b>
+      <b>T@5 = {{top5R2}} / 5 </b>
+      <b>T@10 = {{top10R2}} / 10 </b>
+      <ion-card ion-item *ngFor="let movie of moviesR2">
+        <ion-card-header>
+          {{movie.title}}
+        </ion-card-header>
+        <ion-card-content>
+          <p *ngFor="let genre of movie.genres">
+            {{genre}}
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-list>
+  <ion-list>
+    <div *ngIf="moviesR3.length > 0">
+      <b>Hybrid Recomendations</b>
+      <b>T@5 = {{top5R3}} / 5 </b>
+      <b>T@10 = {{top10R3}} / 10 </b>
+      <ion-card ion-item *ngFor="let movie of moviesR3">
+        <ion-card-header>
+          {{movie.title}}
+        </ion-card-header>
+        <ion-card-content>
+          <p *ngFor="let genre of movie.genres">
+            {{genre}}
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </div>
   </ion-list>
 </ion-content>

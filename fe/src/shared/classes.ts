@@ -58,7 +58,6 @@ export class R1 {
     id: number;
     userid: number;
     movieid: number;
-    rating: number;
     readyid: number;
 
     constructor() {

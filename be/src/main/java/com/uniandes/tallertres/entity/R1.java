@@ -12,18 +12,15 @@ public class R1 {
     private int userid;
     @Column("movieid")
     private int movieid;
-    @Column("rating")
-    private double rating;
     @Column("readyid")
     private int readyid;
 
     public R1() {
     }
 
-    public R1(int userid, int movieid, double rating, int readyid) {
+    public R1(int userid, int movieid, int readyid) {
         this.userid = userid;
         this.movieid = movieid;
-        this.rating = rating;
         this.readyid = readyid;
     }
 
@@ -49,14 +46,6 @@ public class R1 {
 
     public void setMovieid(int movieid) {
         this.movieid = movieid;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
     }
 
     public int getReadyid() {

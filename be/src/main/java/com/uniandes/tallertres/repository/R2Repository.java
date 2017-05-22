@@ -12,6 +12,6 @@ import java.util.List;
  */
 @Repository
 public interface R2Repository extends CassandraRepository<R2> {
-    @Query("SELECT * FROM ratings WHERE readyid = ?0 ALLOW FILTERING")
+    @Query("SELECT * FROM r2 WHERE readyid = ?0 ALLOW FILTERING")
     List<R2> findByReadyId(int readyId);
 }

@@ -44,6 +44,18 @@ export class RecommenderProvider {
     });
   }
 
+  isMovieInTrainById(movieId: number): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.apiUrl + "movie/train/" + movieId)
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+        }, error => {
+          reject(error);
+        });
+    });
+  }
+
   getReadys(): Promise<Ready[]> {
     return new Promise((resolve, reject) => {
       this.http.get(this.apiUrl + "ready")
