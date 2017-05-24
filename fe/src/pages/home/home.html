@@ -24,7 +24,8 @@
     </ion-item>
     <ion-item>
       <ion-label color="primary" fixed>User Id</ion-label>
-      <ion-input type="number" placeholder="Number Input with no label"  min="1" max="259137" [(ngModel)]="userId" debounce="300" (blur)="onUserChanged($event)"></ion-input>
+      <ion-input type="number" placeholder="Number Input with no label" min="1" max="259137" [(ngModel)]="userId" debounce="300"
+        (blur)="onUserChanged($event)"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Movie</ion-label>
@@ -32,17 +33,18 @@
         <ion-option *ngFor="let movieRating of movieRatings" [value]="movieRating.movie">{{movieRating.movie.title}}</ion-option>
       </ion-select>
     </ion-item>
+    <button ion-button full (click)="getRecommendation()">Get Recommendations</button>
     <ion-card ion-item *ngFor="let movieRating of movieRatings">
       <ion-card-header>
         {{movieRating.movie.title}}
       </ion-card-header>
       <ion-card-content>
-        Stars: {{movieRating.rating.rating}}<br /> Genres: <br />
+        Stars: {{movieRating.rating.rating}}<br /> Abstract: {{movieRating.movie.abstractmovie}} <br/> Director: {{movieRating.movie.director}}
+        <br/> Distributor: {{movieRating.movie.distributor}} <br/> Genres: <br />
         <p *ngFor="let genre of movieRating.movie.genres">
           {{genre}}
         </p>
       </ion-card-content>
     </ion-card>
   </ion-list>
-  <button ion-button full (click)="getRecommendation()">Get Recommendations</button>
 </ion-content>

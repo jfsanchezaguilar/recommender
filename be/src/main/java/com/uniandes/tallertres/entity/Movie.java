@@ -27,11 +27,17 @@ public class Movie{
     private String genre7;
     @Column("genre8")
     private String genre8;
+    @Column("abstract")
+    private String abstractmovie;
+    @Column("director")
+    private String director;
+    @Column("distributor")
+    private String distributor;
 
     public Movie(){
     }
 
-    public Movie(int movieId, String title, String genre1, String genre2, String genre3, String genre4, String genre5, String genre6, String genre7, String genre8){
+    public Movie(int movieId, String title, String genre1, String genre2, String genre3, String genre4, String genre5, String genre6, String genre7, String genre8, String abstractmovie, String director, String distributor) {
         this.movieId = movieId;
         this.title = title;
         this.genre1 = genre1;
@@ -42,6 +48,9 @@ public class Movie{
         this.genre6 = genre6;
         this.genre7 = genre7;
         this.genre8 = genre8;
+        this.abstractmovie = abstractmovie;
+        this.director = director;
+        this.distributor = distributor;
     }
 
     public int getMovieId() {
@@ -122,5 +131,29 @@ public class Movie{
 
     public void setGenre8(String genre8) {
         this.genre8 = genre8;
+    }
+
+    public String getAbstractmovie() {
+        return abstractmovie;
+    }
+
+    public void setAbstractmovie(String abstractmovie) {
+        this.abstractmovie = abstractmovie;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public String getDistributor() {
+        return distributor;
+    }
+
+    public void setDistributor(String distributor) {
+        this.distributor = distributor;
     }
 }

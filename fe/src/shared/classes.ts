@@ -10,6 +10,9 @@ export class Movie {
     genre6: string;
     genre7: string;
     genre8: string;
+    abstractmovie: string;
+    director: string;
+    distributor: string;
 
     constructor() {
 

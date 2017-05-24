@@ -14,12 +14,13 @@
         <ion-option *ngFor="let ready of readyRecomendations" [value]="ready">Movie: {{ready.movieid}} - User: {{ready.userid}} - Ready: {{ready.ready}} </ion-option>
       </ion-select>
     </ion-item>
-    <ion-card ion-item>
+    <ion-card ion-item *ngIf="readySelected">
       <ion-card-header>
         {{movieRating.movie.title}}
       </ion-card-header>
       <ion-card-content>
-        Stars: {{movieRating.rating.rating}}<br /> Genres: <br />
+        Stars: {{movieRating.rating.rating}}<br /> Abstract: {{movieRating.movie.abstractmovie}} <br/> Director: {{movieRating.movie.director}}
+        <br/> Distributor: {{movieRating.movie.distributor}} <br/> Genres: <br />
         <p *ngFor="let genre of movieRating.movie.genres">
           {{genre}}
         </p>
@@ -37,6 +38,8 @@
           {{movie.title}}
         </ion-card-header>
         <ion-card-content>
+          Abstract: {{movie.abstractmovie}} <br/> Director: {{movie.director}}
+          <br/> Distributor: {{movie.distributor}} <br/> Genres: <br />
           <p *ngFor="let genre of movie.genres">
             {{genre}}
           </p>
@@ -54,6 +57,8 @@
           {{movie.title}}
         </ion-card-header>
         <ion-card-content>
+          Abstract: {{movie.abstractmovie}} <br/> Director: {{movie.director}}
+          <br/> Distributor: {{movie.distributor}} <br/> Genres: <br />
           <p *ngFor="let genre of movie.genres">
             {{genre}}
           </p>
@@ -71,6 +76,8 @@
           {{movie.title}}
         </ion-card-header>
         <ion-card-content>
+          Abstract: {{movie.abstractmovie}} <br/> Director: {{movie.director}}
+          <br/> Distributor: {{movie.distributor}} <br/> Genres: <br />
           <p *ngFor="let genre of movie.genres">
             {{genre}}
           </p>

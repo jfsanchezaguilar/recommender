@@ -23,20 +23,10 @@ export class AboutPage {
   top10R3: number = 0;
 
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, public recommenderService: RecommenderProvider) {
-    let loading = this.loadingCtrl.create({
-      content: 'Getting user Movies. Please wait...'
-    });
-    loading.present();
-    recommenderService.getReadys().then((readys: Ready[]) => {
-      this.readyRecomendations = readys;
-      loading.dismiss();
-    }, (error) => {
-      console.log(error);
-      loading.dismiss();
-    });
+    
   }
 
-  ngAfterViewInit() {
+  ionViewWillEnter() {
     let loading = this.loadingCtrl.create({
       content: 'Getting user Movies. Please wait...'
     });
@@ -51,6 +41,9 @@ export class AboutPage {
   }
 
   onReadyChange(event) {
+    this.moviesR1 = [];
+    this.moviesR2 = [];
+    this.moviesR3 = [];
     let loading = this.loadingCtrl.create({
       content: 'Getting user Movies. Please wait...'
     });
